@@ -100,7 +100,7 @@
  * </pre>
  * Create a file called upload.php:
  * <pre>
- *  $handle = new UploadComponent($_FILES['image_field']);
+ *  $handle = new upload($_FILES['image_field']);
  *  if ($handle->uploaded) {
  *      $handle->file_new_name_body   = 'image_resized';
  *      $handle->image_resize         = true;
@@ -119,27 +119,27 @@
  * <b>How to process local files?</b><br>
  * Use the class as following, the rest being the same as above:
  * <pre>
- *  $handle = new UploadComponent('/home/user/myfile.jpg');
+ *  $handle = new upload('/home/user/myfile.jpg');
  * </pre>
  *
  * <b>How to set the language?</b><br>
  * Instantiate the class with a second argument being the language code:
  * <pre>
- *  $handle = new UploadComponent($_FILES['image_field'], 'fr_FR');
- *  $handle = new UploadComponent('/home/user/myfile.jpg', 'fr_FR');
+ *  $handle = new upload($_FILES['image_field'], 'fr_FR');
+ *  $handle = new upload('/home/user/myfile.jpg', 'fr_FR');
  * </pre>
  *
  * <b>How to output the resulting file or picture directly to the browser?</b><br>
  * Simply call {@link process}() without an argument (or with null as first argument):
  * <pre>
- *  $handle = new UploadComponent($_FILES['image_field']);
+ *  $handle = new upload($_FILES['image_field']);
  *  header('Content-type: ' . $handle->file_src_mime);
  *  echo $handle->Process();
  *  die();
  * </pre>
  * Or if you want to force the download of the file:
  * <pre>
- *  $handle = new UploadComponent($_FILES['image_field']);
+ *  $handle = new upload($_FILES['image_field']);
  *  header('Content-type: ' . $handle->file_src_mime);
  *  header("Content-Disposition: attachment; filename=".rawurlencode($handle->file_src_name).";");
  *  echo $handle->Process();
